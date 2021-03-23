@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block subtitle %}
-    Liste !
+    Liste des souhaits !
 {% endblock %}
 
 {% block wiki_body %}
@@ -13,7 +13,20 @@
 {% endblock %}
 
 {% block main %}
-    <section class="wiki_trad">
-        <p>Quaestione igitur per multiplices dilatata fortunas cum ambigerentur quaedam, non nulla levius actitata constaret, post multorum clades Apollinares ambo pater et filius in exilium acti cum ad locum Crateras nomine pervenissent, villam scilicet suam quae ab Antiochia vicensimo et quarto disiungitur lapide, ut mandatum est, fractis cruribus occiduntur.</p>
+    <section id="wishlist" class="wiki_trad">
+        {% for bucket in buckets %}
+        <div><a href="{{ path('wish_detail', {id: bucket.id }) }}">
+            <aside class="wish_titre">
+                <span>« {{ bucket.title }} »</span>
+                <span>{{ bucket.author }}</span>
+            </aside>
+            <aside class="wish_description">
+                <p>{{ bucket.description }}</p>
+            </aside>
+            <aside class="wish_date">
+                <span>{{ bucket.dateCreated | date("d/m/Y") }}</span>
+            </aside>
+        </a></div>
+        {% endfor %}
     </section>
 {% endblock %}

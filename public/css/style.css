@@ -77,6 +77,8 @@ html {
     text-transform: uppercase;
     font-size: 20px;
     letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: #ff7700;
 }
 
 #wiki_footer li {
@@ -89,9 +91,9 @@ html {
 
 #wiki_home, .wiki_trad {
     width: 700px;
-    margin: auto;
+    margin: 0 auto;
     background: #17181C;
-    color: #ddd;
+    color: #fff;
     padding: 20px;
     border-radius: 5px;
     line-height: 23px;
@@ -101,7 +103,72 @@ html {
     font-size: 12px !important;
 }
 
-/* ------------------- Traducteur ----------------------- */
+/* ------------------- WISHLIST ----------------------- */
+
+#wishlist > div {
+    margin-bottom: 15px;
+}
+
+#wishlist > div:last-child {
+    margin-bottom: 0px;
+}
+
+#wishlist .wish_titre > span {
+    justify-content: space-between;
+}
+
+#wishlist .wish_titre > span:first-child, .wish_titre > span:first-child {
+    color: #ff7700;
+}
+
+#wishlist .wish_titre > span:last-child, .wish_titre > span:last-child {
+    font-size: 10px;
+}
+
+.wish_titre {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+}
+
+.wish_description {
+    margin: 5px 0px;
+    color: #fff;
+    font-size: 11px;
+    font-family: 'Cousine', Monospace;
+}
+
+.wish_date {
+    text-align: right;
+    color: #ff7700;
+    font-size: 9px;
+    font-family: 'Cousine', Monospace;
+}
+
+.wish_retour {
+    margin: 60px auto;
+}
+
+.wish_retour a {
+    background: #ff7700;
+    border-radius: 5px;
+    padding: 20px 50px;
+    color: #fff;
+    transition: all 0.4s;
+}
+
+.wish_retour a:hover {
+    background: #17181C;
+    transition: all 0.4s;
+    color: #fff;
+}
 
 
 

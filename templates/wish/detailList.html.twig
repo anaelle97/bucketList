@@ -14,6 +14,18 @@
 
 {% block main %}
     <section class="wiki_trad">
-        <p>Quaestione igitur per multiplices dilatata fortunas cum ambigerentur quaedam, non nulla levius actitata constaret, post multorum clades Apollinares ambo pater et filius in exilium acti cum ad locum Crateras nomine pervenissent, villam scilicet suam quae ab Antiochia vicensimo et quarto disiungitur lapide, ut mandatum est, fractis cruribus occiduntur.</p>
+        <div>
+            <aside class="wish_titre">
+                <span>« {{ wish.title }} »</span>
+                <span>{{ wish.author }}</span>
+            </aside>
+            <aside class="wish_description">
+                <p>{{ wish.description }}</p>
+            </aside>
+            <aside class="wish_date">
+                <span>{{ wish.dateCreated | date("d/m/Y") }}</span>
+            </aside>
+        </div>
     </section>
+    <section class="wish_retour"><a href="{{ path('wishlist') }}">Retour !</a></section>
 {% endblock %}
