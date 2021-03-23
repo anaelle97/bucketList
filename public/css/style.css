@@ -1,0 +1,95 @@
+html {
+    background: #17181C !important;
+}
+
+#wiki_body {
+    background: url("../img/dcrebirth.jpg");
+    background-size: cover;
+    height: 800px;
+    color: white !important;
+}
+
+#wiki_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+}
+
+#wiki_logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+#test_logo { font-size: 20px; }
+
+#fr_navi {
+    background: #17181c69;
+    height: 55px;
+}
+
+#fr_navi a {
+    color: white;
+    transition: all 0.3s;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: 'Cousine', Monospace;
+}
+
+#fr_navi a:hover {
+    background: #ff8d1f;
+    transition: all 0.3s;
+}
+
+#wiki_title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 3px;
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+#wiki_footer {
+    display: flex;
+    justify-content: space-around;
+    background: #DDDDDD;
+    box-sizing: border-box;
+    padding: 15px 25px;
+    color: #17181C;
+    transition: all 0.3s;
+}
+
+#wiki_footer a {
+    color: #17181C;
+}
+
+#wiki_footer a:hover {
+    color: #ff8d1f;
+    transition: all 0.3s;
+}
+
+/* ------------------- HOME ----------------------- */
+
+#wiki_home, .wiki_trad {
+    width: 700px;
+    margin: auto;
+    background: #DDDDDDdb;
+    color: #17181C;
+    padding: 20px;
+    border-radius: 5px;
+    line-height: 23px;
+    text-align: justify;
+    box-sizing: border-box;
+    font-family: 'Cousine', sans-serif;
+    font-size: 12px !important;
+}
+
+/* ------------------- Traducteur ----------------------- */
+
+
+
+
+

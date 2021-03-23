@@ -1,0 +1,31 @@
+<nav id="fr_navi" class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{ path('main_home') }}">
+            <i id="test_logo" class="fas fa-book-dead"></i><span id="wiki_logo">Wikébec</span>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-end">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ path('main_home') }}">
+                <span class="icon mr-1"><i class="fas fa-home"></i></span>
+                Accueil
+            </a>
+
+            <a class="navbar-item" href="{{ path('test_home') }}">
+                <span class="icon mr-1"><i class="fas fa-pen-alt"></i></span>
+                Postez un message !
+            </a>
+
+            <a class="navbar-item" href="{{ path('about_home') }}">
+                <span class="icon mr-1"><i class="fas fa-user-friends"></i></span>
+                About us
+            </a>
+        </div>
+</nav>
