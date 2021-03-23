@@ -12,13 +12,13 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body {% block wiki_body %}{% endblock %}>
-    <header>{% include 'main/inc/nav.html.twig' %}</header>
+    <header>{% include 'inc/nav.html.twig' %}</header>
     <main id="wiki_main" class="container">
         <section>
             <h1 id="wiki_title">{% block subtitle%}{% endblock %}</h1>
         </section>
         {% block main %}{% endblock %}
     </main>
-    {%  include 'main/inc/footer.html.twig' %}
+    {%  include 'inc/footer.html.twig' %}
 </body>
 </html>

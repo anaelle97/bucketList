@@ -3,7 +3,7 @@ html {
 }
 
 #wiki_body {
-    background: url("../img/dcrebirth.jpg");
+    background: url("../img/dcrebirth_opacity.jpg");
     background-size: cover;
     height: 800px;
     color: white !important;
@@ -13,7 +13,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 80%;
+    height: 77%;
 }
 
 #wiki_logo {
@@ -25,7 +25,7 @@ html {
 #test_logo { font-size: 20px; }
 
 #fr_navi {
-    background: #17181c69;
+    background: #17181C;
     height: 55px;
 }
 
@@ -45,6 +45,7 @@ html {
 
 #wiki_title {
     text-align: center;
+    color: #17181C;
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 3px;
@@ -55,15 +56,15 @@ html {
 #wiki_footer {
     display: flex;
     justify-content: space-around;
-    background: #DDDDDD;
+    background: #17181C;
     box-sizing: border-box;
     padding: 15px 25px;
-    color: #17181C;
+    color: #fff;
     transition: all 0.3s;
 }
 
 #wiki_footer a {
-    color: #17181C;
+    color: #fff;
 }
 
 #wiki_footer a:hover {
@@ -71,13 +72,26 @@ html {
     transition: all 0.3s;
 }
 
+.wiki_h2 {
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+#wiki_footer li {
+    font-family: 'Cousine', Monospace;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
 /* ------------------- HOME ----------------------- */
 
 #wiki_home, .wiki_trad {
     width: 700px;
     margin: auto;
-    background: #DDDDDDdb;
-    color: #17181C;
+    background: #17181C;
+    color: #ddd;
     padding: 20px;
     border-radius: 5px;
     line-height: 23px;
