@@ -17,16 +17,10 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route ("/traducteur", name="test_home")
-     */
-    public function traducteur() {
-        return $this->render("main/traducteur.html.twig");
-    }
-
-    /**
-     * @Route ("/aboutus", name="about_home")
+     * @Route ("/aboutus", name="main_aboutus")
      */
     public function aboutUs() {
         return $this->render("main/aboutus.html.twig");
     }
+
 }
