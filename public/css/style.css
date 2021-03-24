@@ -101,6 +101,16 @@ html {
     box-sizing: border-box;
     font-family: 'Cousine', sans-serif;
     font-size: 12px !important;
+    height: 345px;
+    overflow: auto;
+}
+
+#wiki_home::-webkit-scrollbar, .wiki_trad::-webkit-scrollbar {
+    width: 5px;
+}
+
+#wiki_home::-webkit-scrollbar-thumb, .wiki_trad::-webkit-scrollbar-thumb {
+    background: #ff7700;
 }
 
 /* ------------------- WISHLIST ----------------------- */
