@@ -29,4 +29,13 @@
         </a></div>
         {% endfor %}
     </section>
+    <section class="wish_page">
+        {% if currentPage > 1 %}
+            <a href="{{ path('wishlist', {'page': currentPage-1}) }}"><button>Previous Page</button></a>
+        {% endif %}
+        {% if (currentPage * 20) < totalResultCount %}
+            <a href="{{ path('wishlist', {'page': currentPage+1}) }}"><button>Next page</button></a>
+        {% endif %}
+    </section>
 {% endblock %}
+

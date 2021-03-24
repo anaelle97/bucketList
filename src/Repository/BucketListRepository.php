@@ -19,6 +19,90 @@ class BucketListRepository extends ServiceEntityRepository
         parent::__construct($registry, BucketList::class);
     }
 
+    public function findWishList(int $page = 1): ?array {
+
+        //en QueryBuilder
+        $queryBuilder = $this->createQueryBuilder('w');
+
+        //ajoute des clauses where
+        $queryBuilder
+            ->andWhere('w.isPublished = true');
+
+        //on peut ajouter des morceaux de requête en fonction de variable php par exemple \o/
+        $filterLikes = true;
+        if ($filterLikes){
+            $queryBuilder->andWhere('w.likes > :likesCount');
+            $queryBuilder->setParameter(':likesCount', 300);
+        }
+
+        //modifie le qb pour sélectionner le count plutôt !
+        //ici on souhaite sélectionner d'abord le nombre de résultats que la requête nous aurait
+        //retourné si nous n'avions pas limité le nombre !
+        $queryBuilder->select("COUNT(w)");
+
+        //on l'exécute en récupérant que le chiffre du résultat
+        $countQuery = $queryBuilder->getQuery();
+        $totalResultCount = $countQuery->getSingleScalarResult();
+
+
+        //mainteant, on peut récupérer les résultats qui nous intéressent en modifiant
+        //le même querybuilder !
+
+
+        //maintenant on veut sélectionner les entités
+        $queryBuilder->select("w");
+
+        //notre offset
+        //combien de résultats est-ce qu'on évite de récupérer
+        //page1 : offset = 0
+        //page2 : offset = 20
+        //page3 : offset = 40
+        $offset = ($page - 1) * 20;
+        $queryBuilder->setFirstResult($offset);
+
+        //nombre max de résultats
+        $queryBuilder->setMaxResults(20);
+
+        //le tri
+        $queryBuilder->addOrderBy('w.dateCreated', 'DESC');
+
+        //on récupère l'objet Query de doctrine
+        $query = $queryBuilder->getQuery();
+
+        //on exécute la requête et on récupère les résultats
+        $result = $query->getResult();
+
+        //puisqu'on a 2 données à return de cette fonction, on les return dans un tableau
+        return [
+            "result" => $result,
+            "totalResultCount" => $totalResultCount,
+        ];
+
+        //en DQL
+    /*    $dql = "SELECT w
+                FROM App\Entity\BucketList w
+                WHERE w.isPublished = true
+                AND w.likes > 300
+                ORDER BY w.dateCreated DESC ";
+
+        //on récupère l'entity manager
+        $entityManager = $this->getEntityManager();
+        //on crée la requête Doctrine
+        $query = $entityManager->createQuery($dql);
+
+        //limite le nombre de résultats
+        $query->setMaxResults(20);
+
+        $offset = ($page-1)*20;
+        $query->setFirstResult($offset);
+
+        // on execute la requete et on recupere les résultats.
+        $result = $query->getResult();
+
+        return $result; */
+
+    }
+
     // /**
     //  * @return BucketList[] Returns an array of BucketList objects
     //  */
