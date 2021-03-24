@@ -18,7 +18,7 @@ class WishController extends AbstractController
     {
         //$buckets = $bucketListRepository->findAll();
         return $this->render('wish/wishlist.html.twig', [
-            "buckets" => $bucketListRepository->findAll()
+            "buckets" => $bucketListRepository->findBy(["isPublished" => 1], ["dateCreated" => "DESC"], 20, 0)
         ]);
     }
 
