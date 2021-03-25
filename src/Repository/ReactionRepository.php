@@ -19,13 +19,6 @@ class ReactionRepository extends ServiceEntityRepository
         parent::__construct($registry, Reaction::class);
     }
 
-  /*  public function findAllReactions(int $id): ?array {
-
-        $queryBuilder = $this->createQueryBuilder('r');
-        $queryBuilder->andWhere('r.bucketList =' .$id);
-
-        return $return;
-    } */
 
     // /**
     //  * @return Reaction[] Returns an array of Reaction objects

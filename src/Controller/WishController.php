@@ -20,12 +20,11 @@ class WishController extends AbstractController
     /**
      * @Route("/wishes/{page}", name="wishlist", requirements={"page": "\d+"})
      */
-    public function list(BucketListRepository $bucketListRepository, int $page = 1): Response
+    public function list(BucketListRepository $bucketListRepository, ReactionRepository $reactionRepository, int $page = 1): Response
     {
         $result = $bucketListRepository->findWishList($page);
         $wishes = $result['result'];
 
-        //$buckets = $bucketListRepository->findAll();
         return $this->render('wish/wishlist.html.twig', [
            // "buckets" => $bucketListRepository->findBy(["isPublished" => 1], ["dateCreated" => "DESC"], 20, 0)
             "buckets" => $wishes,
@@ -67,7 +66,7 @@ class WishController extends AbstractController
         return $this->render('wish/createwish.html.twig', [
             "wishForm" => $wishForm->createView()
         ]);
-        //
+
     }
 
 

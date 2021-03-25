@@ -187,13 +187,17 @@ html {
     font-family: 'Cousine', Monospace;
 }
 
-.wish_date > span > i {
+.wish_date > div > span > i, .wish_date > span > i {
     margin-right: 5px;
     font-size: 13px;
     transition: all 0.3s;
 }
 
-.wish_date > span:first-child:hover {
+.wish_date > div > span:first-child {
+    margin-right: 10px;
+}
+
+.wish_date > div > span:hover, .wish_date > span:first-child:hover {
     transition: all 0.3s;
     color: #fff;
     cursor: pointer;
@@ -225,6 +229,13 @@ html {
     letter-spacing: 2px;
     padding: 20px 0px 10px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.wish_subtitle > h2 > p {
+    color: #ff8d1f;
+    font-size: 12px;
 }
 
 .react {

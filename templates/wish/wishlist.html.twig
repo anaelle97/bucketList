@@ -24,7 +24,10 @@
                 <p>{{ bucket.description }}</p>
             </aside></a>
             <aside class="wish_date">
-                <span><i class="fas fa-heart"></i>{{ bucket.likes }}</span>
+                <div>
+                    <span><i class="fas fa-heart"></i>{{ bucket.likes }}</span>
+                    <span><i class="fas fa-comment-dots"></i>{{ bucket.reactions|length }}</span>
+                </div>
                 <span>{{ bucket.dateCreated | date("d/m/Y") }}</span>
             </aside>
         </div>

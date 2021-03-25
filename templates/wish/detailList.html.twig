@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block subtitle %}
-    Détail de la liste !
+    Mon souhait !
 {% endblock %}
 
 {% block wiki_body %}
@@ -23,11 +23,14 @@
                 <p>{{ wish.description }}</p>
             </aside>
             <aside class="wish_date">
-                <span><i class="fas fa-heart"></i>{{ wish.likes }}</span>
+                <div>
+                    <span><i class="fas fa-heart"></i>{{ wish.likes }}</span>
+                    <span><i class="fas fa-comment-dots"></i>{{ wish.reactions|length }}</span>
+                </div>
                 <span>{{ wish.dateCreated | date("d/m/Y") }}</span>
             </aside>
             <aside class="wish_subtitle">
-                <h2>Les Commentaires : </h2>
+                <h2>Les Commentaires ( <p>{{ wish.reactions|length }}</p> ) : </h2>
             </aside>
             {% for reaction in reactions %}
             <aside class="react">
