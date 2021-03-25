@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\BucketListRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BucketListRepository::class)
@@ -18,21 +20,37 @@ class BucketList
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Veuillez renseigner un titre !")
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="3 caractères minimum svp !",
+     *     maxMessage="255 caractères max svp !"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     *  @Assert\NotBlank(message="Veuillez renseigner une description !")
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
+     * @Assert\NotBlank(message="Veuillez renseigner un auteur!")
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="3 caractères minimum svp !",
+     *     maxMessage="255 caractères max svp !"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $author;
 
     /**
+     * @Assert\NotBlank(message="Veuillez renseigner ce champ!")
      * @ORM\Column(type="boolean", options={"default": true})
      */
     private $isPublished = true;

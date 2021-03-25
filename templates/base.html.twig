@@ -13,6 +13,15 @@
 </head>
 <body {% block wiki_body %}{% endblock %}>
     <header>{% include 'inc/nav.html.twig' %}</header>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
     <main id="wiki_main" class="container">
         <section>
             <h1 id="wiki_title">{% block subtitle%}{% endblock %}</h1>

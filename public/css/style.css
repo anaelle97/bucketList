@@ -2,6 +2,16 @@ html {
     background: #17181C !important;
 }
 
+.alert-success {
+    width: 100%;
+    background: #ff8d1f;
+    padding: 10px;
+    height: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
 #wiki_body {
     background: url("../img/dcrebirth_opacity.jpg");
     background-size: cover;
@@ -26,7 +36,7 @@ html {
 
 #fr_navi {
     background: #17181C;
-    height: 55px;
+    height: 75px;
 }
 
 #fr_navi a {
@@ -151,17 +161,30 @@ html {
 }
 
 .wish_description {
-    margin: 5px 0px;
+    margin: 10px 0px 5px;
     color: #fff;
     font-size: 11px;
     font-family: 'Cousine', Monospace;
 }
 
 .wish_date {
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
     color: #ff7700;
     font-size: 9px;
     font-family: 'Cousine', Monospace;
+}
+
+.wish_date > span > i {
+    margin-right: 5px;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.wish_date > span:first-child:hover {
+    transition: all 0.3s;
+    color: #fff;
+    cursor: pointer;
 }
 
 .wish_retour, .wish_page {
@@ -204,8 +227,82 @@ html {
     color: #ff7700;
 }
 
+/* ---------------- FORMULAIRE ------------------ */
+
+#wishlist {
+    position: relative;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.form-group label {
+    width: 15%;
+}
+
+.form-group input, .form-group textarea {
+    width: 80%;
+    padding: 5px;
+    font-family: 'Cousine', Monospace;
+}
+
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+
+.form-group button {
+    background: #ff7700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 250px;
+    border-radius: 5px;
+    padding: 10px 0;
+    border: none;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#bucket_list_envoyer {
+    margin-top: 27px;
+}
+
+.form-group button:hover {
+    background: #fff;
+    color: #17181C;
+    transition: all 0.3s;
+}
+
+#bucket_list_isPublished {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0px;
+    top: 199px;
+}
+
+#bucket_list_isPublished > div {
+    width:40%;
+}
 
 
+#wishlist > fieldset {
+    display: flex;
+    width: 100%;
+}
 
+#wishlist > fieldset > legend {
+    width: 20%;
+}
+
+#bucket_list_isPublished_0, #bucket_list_isPublished_1 {
+    width: 15%;
+}
 
 

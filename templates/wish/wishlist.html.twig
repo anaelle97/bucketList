@@ -22,11 +22,12 @@
             </aside>
             <aside class="wish_description">
                 <p>{{ bucket.description }}</p>
-            </aside>
+            </aside></a>
             <aside class="wish_date">
+                <span><i class="fas fa-heart"></i>{{ bucket.likes }}</span>
                 <span>{{ bucket.dateCreated | date("d/m/Y") }}</span>
             </aside>
-        </a></div>
+        </div>
         {% endfor %}
     </section>
     <section class="wish_page">

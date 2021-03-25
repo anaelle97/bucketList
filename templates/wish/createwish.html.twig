@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Traducteur
+{% endblock %}
+
+{% block subtitle %}
+    Votre souhait !
+{% endblock %}
+
+{% block wiki_body %}
+    id="wiki_body"
+{% endblock %}
+
+{% block main %}
+    <section id="wishlist" class="wiki_trad">
+        {{ form(wishForm) }}
+    </section>
+{% endblock %}
