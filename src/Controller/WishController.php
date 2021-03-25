@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\BucketList;
+use App\Entity\Category;
+use App\Entity\Reaction;
 use App\Form\BucketListType;
+use App\Form\ReactionType;
 use App\Repository\BucketListRepository;
+use App\Repository\ReactionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,6 +40,7 @@ class WishController extends AbstractController
     public function createWish(Request $request , EntityManagerInterface $entityManager) {
         // crée une intance de l'entité
         $wish = new BucketList();
+        $categories = new Category();
         // crée une intance du formulaire
         $wishForm = $this->createForm(BucketListType::class, $wish);
 
@@ -43,7 +48,7 @@ class WishController extends AbstractController
         $wishForm->handleRequest($request);
 
         // si le formulaire est soumis...
-        if ($wishForm->isSubmitted()) {
+        if ($wishForm->isSubmitted() && $wishForm->isValid()) {
             //on s'occupe des propriétés non null et non présent dans le formulaire
             $wish->setDateCreated(new \DateTime());
             $wish->setLikes(0);
@@ -69,11 +74,32 @@ class WishController extends AbstractController
     /**
      * @Route("/wishes/detail/{id}", name="wish_detail")
      */
-    public function detail(int $id, BucketListRepository $bucketListRepository): Response
+    public function detail(int $id, Request $request , EntityManagerInterface $entityManager, BucketListRepository $bucketListRepository, ReactionRepository $reactionRepository): Response
     {
-        dump($id);
+        $react = new Reaction();
+        $wish = $bucketListRepository->find($id);
+        $reactForm = $this->createForm(ReactionType::class, $react);
+        $reactForm->handleRequest($request);
+
+        if ($reactForm->isSubmitted() && $reactForm->isValid()) {
+            $react->setDateCreated(new \DateTime());
+            $react->setBucketList($wish);
+
+            $entityManager->persist($react);
+            $entityManager->flush();
+
+            // Afficher un message flash
+            $this->addFlash("success", "Votre commentaire a bien été enregistré !");
+
+            return $this->redirectToRoute('wish_detail', ['id' => $wish->getId()]);
+        }
+
         return $this->render('wish/detailList.html.twig', [
-            "wish" => $bucketListRepository->find($id)
+            "reactForm" => $reactForm->createView(),
+            "wish" => $bucketListRepository->find($id),
+            "reactions" => $reactionRepository->findBy([
+                'bucketList' => $id
+            ])
         ]);
     }
 

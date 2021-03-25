@@ -2,6 +2,14 @@ html {
     background: #17181C !important;
 }
 
+.d-bock, .invalid-feedback {
+    display: block;
+    color: #ff7700;
+    font-size: 9px;
+    text-align: left;
+    line-height: 12px;
+}
+
 .alert-success {
     width: 100%;
     background: #ff8d1f;
@@ -143,15 +151,15 @@ html {
     justify-content: space-between;
 }
 
-#wishlist .wish_titre > span:first-child, .wish_titre > span:first-child {
+#wishlist .wish_titre > span:first-child, .wish_titre > span:first-child, .react_info > span:first-child {
     color: #ff7700;
 }
 
-#wishlist .wish_titre > span:last-child, .wish_titre > span:last-child {
+#wishlist .wish_titre > span:last-child, .wish_titre > span:last-child, .react_info > span:last-child {
     font-size: 10px;
 }
 
-.wish_titre {
+.wish_titre, .react_info {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -164,7 +172,7 @@ html {
     padding-bottom: 5px;
 }
 
-.wish_description {
+.wish_description, .react_message {
     margin: 10px 0px 5px;
     color: #fff;
     font-size: 11px;
@@ -209,6 +217,20 @@ html {
     color: #fff;
 }
 
+.wish_subtitle h2, .react_new h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 20px 0px 10px;
+    margin-top: 10px;
+}
+
+.react {
+    margin: 10px 0px 20px;
+}
+
 /* ---------------- BUTTONS PAGE ------------------ */
 
 .wish_page button {
@@ -241,13 +263,14 @@ html {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+    align-items: center;
 }
 
 .form-group label {
     width: 15%;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, .form-group textarea, .form-group select {
     width: 80%;
     padding: 5px;
     font-family: 'Cousine', Monospace;
@@ -288,7 +311,7 @@ html {
     justify-content: space-between;
     position: absolute;
     right: 0px;
-    top: 199px;
+    top: 238px;
 }
 
 #bucket_list_isPublished > div {

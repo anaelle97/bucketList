@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\BucketList;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -27,6 +28,10 @@ class BucketListRepository extends ServiceEntityRepository
         //ajoute des clauses where
         $queryBuilder
             ->andWhere('w.isPublished = true');
+
+        //ajoute une jointure à notre requête pour éviter les multiples requêtes SQL
+        $queryBuilder->leftJoin('w.category', 'c')
+            ->addSelect('c');
 
         //on peut ajouter des morceaux de requête en fonction de variable php par exemple \o/
         $filterLikes = true;
@@ -69,12 +74,14 @@ class BucketListRepository extends ServiceEntityRepository
         //on récupère l'objet Query de doctrine
         $query = $queryBuilder->getQuery();
 
+        $paginator = new Paginator($query);
+
         //on exécute la requête et on récupère les résultats
         $result = $query->getResult();
 
         //puisqu'on a 2 données à return de cette fonction, on les return dans un tableau
         return [
-            "result" => $result,
+            "result" => $paginator,
             "totalResultCount" => $totalResultCount,
         ];
 

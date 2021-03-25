@@ -23,7 +23,28 @@
                 <p>{{ wish.description }}</p>
             </aside>
             <aside class="wish_date">
+                <span><i class="fas fa-heart"></i>{{ wish.likes }}</span>
                 <span>{{ wish.dateCreated | date("d/m/Y") }}</span>
+            </aside>
+            <aside class="wish_subtitle">
+                <h2>Les Commentaires : </h2>
+            </aside>
+            {% for reaction in reactions %}
+            <aside class="react">
+                    <div class="react_info">
+                        <span>{{ reaction.username }}</span>
+                        <span>{{ reaction.dateCreated | date("d/m/Y") }}</span>
+                    </div>
+                    <div class="react_message">
+                        <p>{{ reaction.message }}</p>
+                    </div>
+            </aside>
+            {% endfor %}
+            <aside class="react_new">
+                <h2>Nouveau Commentaire : </h2>
+                <div class="react_newForm">
+                    {{ form(reactForm) }}
+                </div>
             </aside>
         </div>
     </section>
