@@ -99,7 +99,7 @@ html {
 
 /* ------------------- HOME ----------------------- */
 
-#wiki_home, .wiki_trad {
+#wiki_home, .wiki_trad, .wiki_form {
     width: 700px;
     margin: 0 auto;
     background: #17181C;
@@ -115,6 +115,10 @@ html {
     font-size: 12px !important;
     height: 345px;
     overflow: auto;
+}
+
+.wiki_form {
+    height: 400px;
 }
 
 #wiki_home::-webkit-scrollbar, .wiki_trad::-webkit-scrollbar {
@@ -281,7 +285,7 @@ html {
 #bucket_list_isPublished {
     width: 80%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
     right: 0px;
     top: 199px;

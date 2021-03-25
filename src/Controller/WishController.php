@@ -52,10 +52,11 @@ class WishController extends AbstractController
             $entityManager->persist($wish);
             $entityManager->flush();
 
+            // Afficher un message flash
             $this->addFlash("success", "Votre souhait a bien été enregistré !");
 
             //redirige vers une autre page, ou vers la page actuelle pour vider le form
-            return $this->redirectToRoute('wishlist');
+            return $this->redirectToRoute('wish_detail', ['id' => $wish->getId()]);
         }
 
         return $this->render('wish/createwish.html.twig', [
